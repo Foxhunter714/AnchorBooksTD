@@ -25,8 +25,7 @@ class Repository{
         val response = RetrofitClient.retrofitInstance().getBook(id)
         when(response.isSuccessful){
             true-> response.body()?.let {
-                bookDetail.value= it
-            }
+                bookDetail.value= it }
             false-> Timber.d("${response.body()}")
         }
     }
