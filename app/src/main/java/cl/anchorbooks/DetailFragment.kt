@@ -34,7 +34,12 @@ class DetailFragment : Fragment() {
             binding.linkView.text = it.link
             binding.pageView.text = it.pages.toString()
             binding.titleView3.text = it.title
-            binding.textView5.text = it.delivery.toString()
+            if (it.delivery){
+                binding.textView5.text = it.delivery.toString()
+            } else {
+
+            }
+
             Picasso.get().load(it.imageLink).into(binding.imageView2)
 
             fun email() {
