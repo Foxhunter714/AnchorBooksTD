@@ -3,6 +3,7 @@ package cl.anchorbooks
 import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import timber.log.Timber
 
 @Entity(tableName = "book")
 data class BookEntity(@PrimaryKey val id: Int, val author: String, val country: String, val imageLink: String, val language: String, val title: String)
@@ -27,6 +28,7 @@ class BookApplication: Application(){
 
     override fun onCreate() {
         super.onCreate()
+        Timber.d("onCreate de application")
         bookDatabase = Room.databaseBuilder(this, BookDatabase::class.java, "books_database").build()
     }
 }

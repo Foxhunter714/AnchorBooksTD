@@ -2,6 +2,7 @@ package cl.anchorbooks
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.viewbinding.BuildConfig
 import timber.log.Timber
 
@@ -21,9 +22,13 @@ import timber.log.Timber
 
 
 class MainActivity : AppCompatActivity() {
+    private val viewModel: BookViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        initLog()
+        supportFragmentManager.beginTransaction().add(R.id.main_container, ListingFragment()).commit()
     }
 
     private fun initLog(){

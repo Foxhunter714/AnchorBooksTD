@@ -27,6 +27,9 @@ class ListingFragment: Fragment(){
             viewModel.selected(it)
 
         })*/
+        viewModel.books().observe(viewLifecycleOwner, {
+            adapter.update(it)
+        })
         return binding.root
     }
 }

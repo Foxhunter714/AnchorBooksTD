@@ -1,5 +1,6 @@
-package cl.anchorbooks
+package cl.anchorbooks.remote
 
+import cl.anchorbooks.Book
 import retrofit2.Response
 import retrofit2.http.GET
 

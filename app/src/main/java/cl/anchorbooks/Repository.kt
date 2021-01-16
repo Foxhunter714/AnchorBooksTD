@@ -1,5 +1,6 @@
 package cl.anchorbooks
 
+import cl.anchorbooks.remote.RetrofitClient
 import timber.log.Timber
 
 class Repository{
@@ -10,7 +11,8 @@ class Repository{
         val response = RetrofitClient.retrofitInstance().getBooks()
         if (response.isSuccessful){
             response.body()?.let {list ->
-                val res = list.map { mapperBookApi2DB(it) }
+                val res = list.map {
+                    mapperBookApi2DB(it) }
                 bookDatabase.bookDao().insert(res)
             }
         } else {

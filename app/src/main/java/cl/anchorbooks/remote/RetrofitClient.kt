@@ -1,9 +1,10 @@
-package cl.anchorbooks
+package cl.anchorbooks.remote
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 const val BASE_URL = "https://my-json-server.typicode.com/Himuravidal/anchorBooks/"
+
 class RetrofitClient{
     companion object {
         fun retrofitInstance(): BookAPI {

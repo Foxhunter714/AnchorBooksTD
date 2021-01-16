@@ -5,13 +5,15 @@ import kotlinx.coroutines.launch
 
 class BookViewModel: ViewModel(){
     private val repository = Repository()
+    fun books(): LiveData<List<Book>> = books
 
     private val books = Transformations.map(repository.books){
-        entities -> entities.map { mapperBookApi2DB(it) }
+        entities -> entities.map {
+        mapperBookDB2API(it)}
     }
-    private val selected = MutableLiveData<Book>()
 
-    fun books(): LiveData<List<BookEntity>>? = books
+
+
     init {
         viewModelScope.launch {
             repository.getBooks()
@@ -19,6 +21,7 @@ class BookViewModel: ViewModel(){
     }
 
     //Detail
+    //private val selected = MutableLiveData<Book>()
     /*fun selected(book: Book){
         selected.value = book
 

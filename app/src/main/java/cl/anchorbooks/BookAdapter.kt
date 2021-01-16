@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import cl.anchorbooks.databinding.BookItemListBinding
+import com.squareup.picasso.Picasso
 
 class BookAdapter: RecyclerView.Adapter<BookAdapter.BookVH>(){
     private var bookList = listOf<Book>()
@@ -29,9 +30,18 @@ class BookAdapter: RecyclerView.Adapter<BookAdapter.BookVH>(){
         return bookList.size
     }
 
+    fun update(pBooksList: List<Book>){
+        bookList = pBooksList
+        notifyDataSetChanged()
+    }
     inner class BookVH(val binding: BookItemListBinding): RecyclerView.ViewHolder(binding.root) {
             fun bind(book: Book){
                 binding.authorView.text = book.author
+                binding.idView.text = book.id.toString()
+                binding.countryView.text = book.country
+                binding.titleView.text = book.title
+                binding.languageView.text = book.language
+                Picasso.get().load(book.imageLink).into(binding.imageView)
             }
     }
 
