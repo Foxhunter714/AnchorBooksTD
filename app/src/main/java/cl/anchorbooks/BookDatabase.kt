@@ -10,13 +10,19 @@ data class BookEntity(@PrimaryKey val id: Int, val author: String, val country: 
 
 @Dao
 interface BookDao{
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(books: List<BookEntity>)
 
     @Query("SELECT * FROM book")
     fun getBooks(): LiveData<List<BookEntity>>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insert(books: BookDetail)
+
+    @Query("SELECT * FROM book_detail WHERE id=:id")
+    fun getBook(id: Int): LiveData<BookDetail>
 }
-@Database(entities = [BookEntity::class], version = 1)
+@Database(entities = [BookEntity::class, BookDetail::class], version = 1)
 abstract class BookDatabase: RoomDatabase(){
     abstract fun bookDao(): BookDao
 }

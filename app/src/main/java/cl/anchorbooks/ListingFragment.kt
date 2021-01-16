@@ -23,10 +23,11 @@ class ListingFragment: Fragment(){
         val adapter = BookAdapter()
         binding.rvBooksList.adapter = adapter
 
-        /*adapter.selectedItem().observe(viewLifecycleOwner, {
+        adapter.selectedItem().observe(viewLifecycleOwner, {
             viewModel.selected(it)
+            activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_container, DetailFragment())?.addToBackStack("fragmentDetail")?.commit()
 
-        })*/
+        })
         viewModel.books().observe(viewLifecycleOwner, {
             adapter.update(it)
         })

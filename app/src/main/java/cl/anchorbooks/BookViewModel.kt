@@ -5,6 +5,7 @@ import kotlinx.coroutines.launch
 
 class BookViewModel: ViewModel(){
     private val repository = Repository()
+
     fun books(): LiveData<List<Book>> = books
 
     private val books = Transformations.map(repository.books){
@@ -21,12 +22,15 @@ class BookViewModel: ViewModel(){
     }
 
     //Detail
-    //private val selected = MutableLiveData<Book>()
-    /*fun selected(book: Book){
+    fun selected(): LiveData<Book> = selected
+    private val selected = MutableLiveData<Book>()
+
+    fun getDetail(): LiveData<BookDetail> = repository.bookDetail
+
+    fun selected(book: Book){
         selected.value = book
 
         viewModelScope.launch {
-            repository.getBooks()
-        }
-    }*/
+            repository.getBookDetail(book.id)        }
+    }
 }
