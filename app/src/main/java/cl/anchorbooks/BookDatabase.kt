@@ -16,7 +16,7 @@ interface BookDao{
     @Query("SELECT * FROM book")
     fun getBooks(): LiveData<List<BookEntity>>
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(books: BookDetail)
 
     @Query("SELECT * FROM book_detail WHERE id=:id")

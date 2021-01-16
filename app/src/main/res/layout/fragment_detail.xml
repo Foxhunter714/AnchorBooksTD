@@ -74,14 +74,14 @@
 
     <TextView
         android:id="@+id/pageView"
-        android:textColor="@color/Divide_color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
-        android:layout_marginBottom="9dp"
+        android:layout_marginTop="8dp"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/yearView11"
-        app:layout_constraintStart_toEndOf="@+id/idView2" />
+        android:textColor="@color/Divide_color"
+        app:layout_constraintStart_toEndOf="@+id/idView2"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <TextView
         android:textColor="@color/Divide_color"
@@ -96,6 +96,7 @@
 
     <TextView
         android:id="@+id/languageView2"
+        android:textColor="@color/Divide_color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
@@ -105,25 +106,35 @@
         app:layout_constraintTop_toBottomOf="@+id/countryView2" />
 
     <TextView
-        android:textColor="@color/Divide_color"
         android:id="@+id/linkView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="38dp"
-        android:layout_marginTop="9dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="14dp"
         android:text="TextView"
+        android:textColor="@color/Divide_color"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/idView2" />
+        app:layout_constraintTop_toBottomOf="@+id/yearView11" />
 
     <TextView
-        android:textColor="@color/Divide_color"
-
         android:id="@+id/yearView11"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="246dp"
-        android:layout_marginBottom="513dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="315dp"
         android:text="TextView"
+        android:textColor="@color/Divide_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idView2" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="430dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_share" />
 </androidx.constraintlayout.widget.ConstraintLayout>

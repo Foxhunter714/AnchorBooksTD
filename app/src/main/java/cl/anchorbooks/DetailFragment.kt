@@ -32,6 +32,7 @@ class DetailFragment : Fragment() {
             binding.pageView.text = it.pages.toString()
             binding.titleView3.text = it.title
             Picasso.get().load(it.imageLink).into(binding.imageView2)
+
             //falta delivery
         })
         return binding.root
